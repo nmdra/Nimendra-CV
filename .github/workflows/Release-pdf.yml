@@ -22,7 +22,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: examples
+        name: artifacts
         path: src/*.pdf
 
     - name: Release
