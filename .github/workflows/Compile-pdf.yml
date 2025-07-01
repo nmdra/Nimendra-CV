@@ -3,6 +3,7 @@ name: Compile PDFs
 on:
   push: {}
   pull_request: {}
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,8 +16,7 @@ jobs:
 
     - name: Compile
       run: make
-
     - uses: actions/upload-artifact@v4
       with:
-        name: examples
-        path: examples/*.pdf
+        name: Output
+        path: ./*.pdf

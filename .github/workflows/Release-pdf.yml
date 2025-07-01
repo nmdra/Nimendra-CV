@@ -1,0 +1,33 @@
+name: Release PDFs
+
+on:
+  push:
+    tags:
+      - "v*.*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    container: texlive/texlive:latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Compile
+      run: make
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: examples
+        path: ./*.pdf
+
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: ./*.pdf 
+        generate_release_notes: true
+
