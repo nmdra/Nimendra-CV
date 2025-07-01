@@ -23,11 +23,11 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: examples
-        path: ./*.pdf
+        path: src/*.pdf
 
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
-        files: ./*.pdf 
+        files: src/*.pdf 
         generate_release_notes: true
 
