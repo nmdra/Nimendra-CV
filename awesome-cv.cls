@@ -792,26 +792,28 @@
 
 % Define a title of the cover letter
 % Usage: \makelettertitle
-
 \newcommand*{\makelettertitle}{%
   \vspace{8.4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
-    \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate} \\
+    \ifthenelse{\isundefined{\@recipientname}}{}{\recipienttitlestyle{\@recipientname}} &
+    \ifthenelse{\isundefined{\@letterdate}}{}{\letterdatestyle{\@letterdate}} \\
   \end{tabular*}
   \vspace{1mm}
-  \ifthenelse{\isundefined{\@recipientaddress}}{}{% Only show if defined
+  \ifthenelse{\isundefined{\@recipientaddress}}{}{%
     \begin{singlespace}
       \recipientaddressstyle{\@recipientaddress} \\
     \end{singlespace}
   }
   \vspace{1mm}
-  \ifthenelse{\isundefined{\@lettertitle}}{}{% Only show if defined
+  \ifthenelse{\isundefined{\@lettertitle}}{}{%
     \lettertitlestyle{\@lettertitle} \\
   }
   \vspace{2mm}
-  \lettertextstyle{\@letteropening}
+  \ifthenelse{\isundefined{\@letteropening}}{}{%
+    \lettertextstyle{\@letteropening}
+  }
 }
 
 % Define a closing of the cover letter
