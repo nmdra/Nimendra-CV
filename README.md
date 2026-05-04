@@ -7,11 +7,15 @@ This repository contains the LaTeX source code for my Curriculum Vitae, Résumé
 - **Awesome CV** template
 
 ## Documents
-- `cv.pdf`: Full Curriculum Vitae
-- `resume.pdf`: One-page Résumé
+- `cv.pdf`: Full Curriculum Vitae (**Turquoise Theme**)
+- `resume.pdf`: One-page Résumé (**Midnight Blue Theme**)
 - `coverletter.pdf`: Cover Letter for DevOps/SRE roles
 
-## Build Instructions
+## Features
+- **Modern Icons**: Support for X (formerly Twitter) and WhatsApp.
+- **Custom Themes**: Integrated 10+ professional "Awesome colors" from the latest upstream.
+- **Automated CI/CD**: PDF compilation and releases via GitHub Actions.
+- **WSO2 Internship**: Latest work experience at WSO2 LLC.
 
 ### Prerequisites
 A full TeX distribution (e.g., TeX Live) is required.
