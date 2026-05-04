@@ -140,6 +140,7 @@
 \colorlet{lighttext}{lightgray}
 \colorlet{sectiondivider}{gray}
 % Awesome colors
+\definecolor{awesome-darknight}{HTML}{131A28}
 \definecolor{awesome-emerald}{HTML}{00A388}
 \definecolor{awesome-skyblue}{HTML}{0395DE}
 \definecolor{awesome-red}{HTML}{DC3522}
@@ -148,6 +149,17 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
+% New Awesome colors
+\definecolor{awesome-pomegranate}{HTML}{C0392B}
+\definecolor{awesome-pumpkin}{HTML}{D35400}
+\definecolor{awesome-belizehole}{HTML}{2980B9}
+\definecolor{awesome-wisteria}{HTML}{8E44AD}
+\definecolor{awesome-midnightblue}{HTML}{2C3E50}
+\definecolor{awesome-asbestos}{HTML}{7F8C8D}
+\definecolor{awesome-amethyst}{HTML}{9B59B6}
+\definecolor{awesome-alizarin}{HTML}{E74C3C}
+\definecolor{awesome-peterriver}{HTML}{3498DB}
+\definecolor{awesome-turquoise}{HTML}{1ABC9C}
 \colorlet{awesome}{awesome-red}
 
 % Boolean value to switch section color highlighting
@@ -317,6 +329,10 @@
 % Defines writer's x (formerly twitter) (optional)
 % Usage: \x{<x account>}
 \newcommand*{\x}[1]{\def\@x{#1}}
+
+% Defines writer's WhatsApp (optional)
+% Usage: \whatsapp{<whatsapp phone number>}
+\newcommand*{\whatsapp}[1]{\def\@whatsapp{#1}}
 
 % Defines writer's Mastodon (optional)
 % Usage: \mastodon{<instance>}{<mastodon-nick>}
@@ -558,6 +574,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://x.com/\@x}{\faXTwitter\acvHeaderIconSep\@x}%
+        }%
+      \ifthenelse{\isundefined{\@whatsapp}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://wa.me/\@whatsapp}{\faWhatsapp\acvHeaderIconSep\@whatsapp}%
         }%
       \ifthenelse{\isundefined{\@mastodonname}}%
         {}%
