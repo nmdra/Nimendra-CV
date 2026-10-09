@@ -12,6 +12,10 @@
 *.dvi
 *-converted-to.*
 
+### Python test artifacts ###
+__pycache__/
+*.py[cod]
+
 ### Editor ###
 ## Vim & Emacs temp files:
 .*sw[op]

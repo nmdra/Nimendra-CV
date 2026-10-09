@@ -1,0 +1,67 @@
+% Shared, table-free presentation for the two ATS resume variants.
+\usepackage{fontspec}
+% File names let both XeLaTeX and Tectonic resolve the bundled font.
+\setmainfont{lmroman10}[
+  Extension=.otf,
+  UprightFont=*-regular,
+  BoldFont=*-bold,
+  ItalicFont=*-italic,
+  BoldItalicFont=*-bolditalic
+]
+\usepackage[a4paper,margin=15mm]{geometry}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\setlist[itemize]{leftmargin=1.4em,label=\textbullet,
+  topsep=2pt,itemsep=1pt,parsep=0pt,partopsep=0pt}
+
+\newcommand{\atsheader}[5]{%
+  {\fontsize{20pt}{24pt}\selectfont\bfseries #1\par}
+  \vspace{2pt}
+  #2 \textbar{} #3\par
+  \href{tel:+94767067343}{#4} \textbar{} \href{mailto:#5}{#5}\par
+  \href{https://github.com/nmdra}{github.com/nmdra} \textbar{}
+  \href{https://www.linkedin.com/in/nimendra}{linkedin.com/in/nimendra}
+  \textbar{} \href{https://x.com/nimendra_}{x.com/nimendra\_}\par
+}
+
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{8pt}
+  \Needspace{4\baselineskip}
+  {\large\bfseries #1\par}
+  \nobreak\vspace{3pt}
+}
+\newenvironment{cvparagraph}{\par}{\par}
+\newenvironment{cventries}{}{}
+\newenvironment{cvitems}{\begin{itemize}}{\end{itemize}}
+
+% Existing content contract: role, organization, location, dates, description.
+\newcommand{\cventry}[5]{%
+  \par\addvspace{5pt}
+  \Needspace{5\baselineskip}
+  {\bfseries #2\par}\nobreak
+  #1\par\nobreak
+  #3 \textbar{} #4\par\nobreak
+  #5\par
+}
+
+\newenvironment{cvhonors}{}{}
+% Existing content contract: course, issuer, optional location, date.
+\newcommand{\cvhonor}[4]{%
+  \par\addvspace{2pt}
+  #1 \textbar{} #2%
+  \if\relax\detokenize{#3}\relax\else\space\textbar{} #3\fi
+  \space\textbar{} #4\par
+}
+\newenvironment{cvskills}{}{}
+\newcommand{\cvskill}[2]{%
+  \par\addvspace{2pt}\textbf{#1:} #2\par
+}
+
+% Shared project links contain this decoration; text labels remain intact.
+\newcommand{\faGithub}{}
